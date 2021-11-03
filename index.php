@@ -2,6 +2,7 @@
 
 require 'Case1.php';
 require 'Case2.php';
+require 'CheckCases.php';
 
 $t = (int)readline("Enter number of test cases:");
 
@@ -37,26 +38,13 @@ for ($i = 0; $i < $t; $i++) {
     }
 
     //test cases
-    $case1 = new Case1();
-    $case2 = new Case2();
+    $caseCheck = new CheckCases(new Case1(), new Case2());
 
     //steps for each test case
-    $steps1 = 0;
-    $steps2 = 0;
-
-    //Checks each test case and returns step count
-    if ($a > $b) {
-        $steps1 = $case1->checkCase($a, $b, $c);
-        $steps2 = $case2->checkCase($a, $b, $c);
-    }
-
-    if ($b > $a) {
-        $steps1 = $case1->checkCase($b, $a, $c);
-        $steps2 = $case2->checkCase($b, $a, $c);
-    }
+    $steps = $caseCheck->cases($a, $b, $c);
 
     //chooses case with the lowest step count
-    $allSteps[] = min($steps1, $steps2);
+    $allSteps[] = min($steps);
 }
 
 //output

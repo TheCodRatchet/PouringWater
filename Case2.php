@@ -10,7 +10,7 @@ Each step gets repeated for certain situations
 class Case2
 {
 
-    public function checkCase(int $vesselA, int $vesselB, int $amount): int
+    public function case(int $vesselA, int $vesselB, int $amount): int
     {
         $vessel1 = 0;
         $vessel2 = 0;
